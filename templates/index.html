@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Image Encryption</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="bg-contact3" style="background-image: url('images/bg-01.jpg');">
+		<div class="container-contact3">
+			<div class="wrap-contact3">
+
+					<span class="contact3-form-title">
+						Image Encryption
+					</span>
+
+                    <!-- Radio buttons -->
+					<div class="wrap-contact3-form-radio">
+						<div class="contact3-form-radio m-r-42">
+							<input class="input-radio3" id="radio1" type="radio" name="choice" value="encrypt" checked="checked">
+							<label class="label-radio3" for="radio1">
+								Encrypt
+							</label>
+						</div>
+
+						<div class="contact3-form-radio">
+							<input class="input-radio3" id="radio2" type="radio" name="choice" value="decrypt">
+							<label class="label-radio3" for="radio2">
+								Decrypt
+							</label>
+						</div>
+					</div>
+
+                    <!-- Encrypt Form -->
+					<div class="wrap-input3 input2-select">
+					    <form class="contact3-form validate-form" action="encrypt" method="post" enctype="multipart/form-data">
+					        {% csrf_token %}
+    						<div>
+    						    <label class="label-input3">
+    								Upload image to encrypt
+    							</label>
+    							<input type="file" accept="image/*" name="input_image" required>
+    						</div>
+    						<span class="focus-input3"></span>
+    						<div class="container-contact3-form-btn">
+        						<button class="contact3-form-btn" type="submit">
+        						    <span>
+        							    Encrypt
+        							    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						            </span>
+        						</button>
+        					</div>
+    					</form>
+					</div>
+
+                    <!-- Decrypt Form -->
+					<div class="wrap-input3 input3-select">
+					    <form class="contact3-form validate-form" action="decrypt" method="post" enctype="multipart/form-data">
+					        {% csrf_token %}
+    						<div>
+    						    <label class="label-input3">
+    								Upload encrypted file to decrypt
+    							</label>
+    							<input type="file" accept=".npy" name="input_npy" required>
+    						</div>
+    						<span class="focus-input3"></span>
+    						<div class="container-contact3-form-btn">
+        						<button class="contact3-form-btn" type="submit">
+        						    <span>
+        							    Decrypt
+        							    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+						            </span>
+        						</button>
+        					</div>
+    					</form>
+					</div>
+
+
+
+
+			</div>
+		</div>
+	</div>
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
